@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trab2gui.CRUDController">
+  <tabs>
+    <Tab text="Visualizar">
+         <content>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                  <Tab text="Pets">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Pet (vazio para consultar todos)" />
+                              <Button layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
+                              <TableView layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
+                                 <columns>
+                                    <TableColumn prefWidth="100.0" text="ID" />
+                                    <TableColumn prefWidth="225.0" text="NOME" />
+                                    <TableColumn prefWidth="146.0" text="TIPO" />
+                                    <TableColumn prefWidth="168.0" text="RAÇA" />
+                                    <TableColumn prefWidth="97.0" text="GÊNERO" />
+                                    <TableColumn prefWidth="70.0" text="IDADE" />
+                                    <TableColumn prefWidth="185.0" text="DONO" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                <Tab text="Donos">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Dono (vazio para consultar todos)" />
+                              <Button layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
+                              <TableView layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
+                                <columns>
+                                  <TableColumn prefWidth="100.0" text="ID" />
+                                  <TableColumn prefWidth="522.0" text="NOME" />
+                                    <TableColumn prefWidth="98.0" text="IDADE" />
+                                    <TableColumn prefWidth="138.0" text="ALTURA" />
+                                    <TableColumn prefWidth="133.0" text="PESO" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </content>
+    </Tab>
+      <Tab text="Adicionar">
+         <content>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Pets">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button id="add_pet_button" fx:id="add_pet_button" layoutX="452.0" layoutY="311.0" mnemonicParsing="false" onAction="#onAddPetButtonClick" prefHeight="44.0" prefWidth="131.0" text="Adicionar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="441.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Pet">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField id="add_pet_name" fx:id="add_pet_name" layoutX="130.0" layoutY="105.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_pet_breed" fx:id="add_pet_breed" layoutX="523.0" layoutY="167.0" prefHeight="38.0" prefWidth="370.0" promptText="Raça">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_pet_age" fx:id="add_pet_age" layoutX="130.0" layoutY="228.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_pet_type" fx:id="add_pet_type" layoutX="130.0" layoutY="167.0" prefHeight="38.0" prefWidth="376.0" promptText="Tipo">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_pet_owner_id" fx:id="add_pet_owner_id" layoutX="386.0" layoutY="228.0" prefHeight="38.0" prefWidth="262.0" promptText="ID do Dono">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox id="add_pet_gender" fx:id="add_pet_gender" layoutX="665.0" layoutY="228.0" prefHeight="38.0" prefWidth="228.0" />
+                              <Text id="add_pet_response" fx:id="add_pet_response" layoutX="282.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" textOrigin="CENTER">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <Text id="add_pet_response" layoutX="130.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mensagem:" textAlignment="CENTER" textOrigin="CENTER">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Donos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button id="add_owner_button" fx:id="add_owner_button" layoutX="451.0" layoutY="239.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Adicionar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="426.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adicionar Dono">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField id="add_owner_name" fx:id="add_owner_name" layoutX="130.0" layoutY="105.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_owner_age" fx:id="add_owner_age" layoutX="130.0" layoutY="167.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField id="add_owner_height" fx:id="add_owner_height" layoutX="385.0" layoutY="167.0" prefHeight="38.0" prefWidth="256.0" promptText="Altura">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Text id="add_owner_response" layoutX="516.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField id="add_owner_weight" fx:id="add_owner_weight" layoutX="656.0" layoutY="167.0" prefHeight="38.0" prefWidth="237.0" promptText="Peso">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </content>
+      </Tab>
+      <Tab text="Editar">
+         <content>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Pets">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="452.0" layoutY="427.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Salvar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="452.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Pet">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField layoutX="131.0" layoutY="221.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="523.0" layoutY="283.0" prefHeight="38.0" prefWidth="370.0" promptText="Raça">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="130.0" layoutY="344.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="130.0" layoutY="283.0" prefHeight="38.0" prefWidth="376.0" promptText="Tipo">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="386.0" layoutY="344.0" prefHeight="38.0" prefWidth="262.0" promptText="ID do Dono">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox layoutX="665.0" layoutY="344.0" prefHeight="38.0" prefWidth="228.0" />
+                              <Text layoutX="516.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField layoutX="131.0" layoutY="100.0" prefHeight="38.0" prefWidth="605.0" promptText="ID do Pet">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Button layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Donos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="451.0" layoutY="355.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Salvar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="443.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Dono">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField layoutX="131.0" layoutY="221.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="131.0" layoutY="283.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="382.0" layoutY="283.0" prefHeight="38.0" prefWidth="262.0" promptText="Altura">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="516.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField layoutX="656.0" layoutY="283.0" prefHeight="38.0" prefWidth="237.0" promptText="Peso">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="131.0" layoutY="100.0" prefHeight="38.0" prefWidth="605.0" promptText="ID do Dono">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Button layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </content>
+      </Tab>
+      <Tab text="Excluir">
+         <content>
+            <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Pets">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="452.0" layoutY="427.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Excluir">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="454.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Pet">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField disable="true" editable="false" layoutX="131.0" layoutY="221.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="523.0" layoutY="283.0" prefHeight="38.0" prefWidth="370.0" promptText="Raça">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="130.0" layoutY="344.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="130.0" layoutY="283.0" prefHeight="38.0" prefWidth="376.0" promptText="Tipo">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="386.0" layoutY="344.0" prefHeight="38.0" prefWidth="262.0" promptText="ID do Dono">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox disable="true" layoutX="665.0" layoutY="344.0" prefHeight="38.0" prefWidth="228.0" />
+                              <Text layoutX="516.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField layoutX="131.0" layoutY="100.0" prefHeight="38.0" prefWidth="605.0" promptText="ID do Pet">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Button layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Donos">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="451.0" layoutY="355.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Excluir">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="439.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Excluir Dono">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField disable="true" editable="false" layoutX="131.0" layoutY="221.0" prefHeight="38.0" prefWidth="763.0" promptText="Nome">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="131.0" layoutY="283.0" prefHeight="38.0" prefWidth="238.0" promptText="Idade">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField disable="true" editable="false" layoutX="382.0" layoutY="283.0" prefHeight="38.0" prefWidth="262.0" promptText="Altura">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Text layoutX="516.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Text>
+                              <TextField disable="true" editable="false" layoutX="656.0" layoutY="283.0" prefHeight="38.0" prefWidth="237.0" promptText="Peso">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <TextField layoutX="131.0" layoutY="100.0" prefHeight="38.0" prefWidth="605.0" promptText="ID do Dono">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </TextField>
+                              <Button layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
