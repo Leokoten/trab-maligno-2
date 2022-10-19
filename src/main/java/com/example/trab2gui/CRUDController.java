@@ -68,6 +68,11 @@ public class CRUDController implements Initializable {
                     add_pet_gender.getValue(), Integer.parseInt(add_pet_age.getText()), add_pet_owner_id.getText());
             db.addPet(pet);
             add_pet_response.setText("Pet adicionado com sucesso (id: " + pet.getId() + ")");
+            add_pet_name.setText("");
+            add_pet_type.setText("");
+            add_pet_breed.setText("");
+            add_pet_age.setText("");
+            add_pet_owner_id.setText("");
         } catch (Exception e) {
             add_pet_response.setText(e.getMessage());
         }
