@@ -22,15 +22,15 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <TextField fx:id="read_pet_id" layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Pet (vazio para consultar todos)" />
-                              <Button fx:id="read_pet_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
+                              <Button fx:id="read_pet_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" onAction="#onReadPetsButtonClick" text="Consultar" />
                               <TableView fx:id="read_pet_table" layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
                                  <columns>
-                                    <TableColumn fx:id="read_pet_column_id" prefWidth="100.0" text="ID" />
-                                    <TableColumn fx:id="read_pet_column_name" prefWidth="225.0" text="NOME" />
-                                    <TableColumn fx:id="read_pet_column_type" prefWidth="146.0" text="TIPO" />
-                                    <TableColumn fx:id="read_pet_column_breed" prefWidth="168.0" text="RAÇA" />
-                                    <TableColumn fx:id="read_pet_column_gender" prefWidth="97.0" text="GÊNERO" />
-                                    <TableColumn fx:id="read_pet_column_age" prefWidth="70.0" text="IDADE" />
+                                    <TableColumn fx:id="read_pet_column_id" prefWidth="212.0" text="ID" />
+                                    <TableColumn fx:id="read_pet_column_name" prefWidth="198.0" text="NOME" />
+                                    <TableColumn fx:id="read_pet_column_type" prefWidth="139.0" text="TIPO" />
+                                    <TableColumn fx:id="read_pet_column_breed" prefWidth="130.0" text="RAÇA" />
+                                    <TableColumn fx:id="read_pet_column_gender" prefWidth="74.0" text="GÊNERO" />
+                                    <TableColumn fx:id="read_pet_column_age" prefWidth="53.0" text="IDADE" />
                                     <TableColumn fx:id="read_pet_column_owner_id" prefWidth="185.0" text="DONO" />
                                  </columns>
                               </TableView>
@@ -42,15 +42,15 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Dono (vazio para consultar todos)" />
-                              <Button layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
-                              <TableView layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
+                              <TextField fx:id="read_owner_id" layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Dono (vazio para consultar todos)" />
+                              <Button fx:id="read_owner_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
+                              <TableView fx:id="read_owner_table" layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
                                 <columns>
-                                  <TableColumn prefWidth="100.0" text="ID" />
-                                  <TableColumn prefWidth="522.0" text="NOME" />
-                                    <TableColumn prefWidth="98.0" text="IDADE" />
-                                    <TableColumn prefWidth="138.0" text="ALTURA" />
-                                    <TableColumn prefWidth="133.0" text="PESO" />
+                                  <TableColumn fx:id="read_owner_column_id" prefWidth="100.0" text="ID" />
+                                  <TableColumn fx:id="read_owner_column_name" prefWidth="522.0" text="NOME" />
+                                    <TableColumn fx:id="read_owner_column_age" prefWidth="98.0" text="IDADE" />
+                                    <TableColumn fx:id="read_owner_column_height" prefWidth="138.0" text="ALTURA" />
+                                    <TableColumn fx:id="read_owner_column_weight" prefWidth="133.0" text="PESO" />
                                 </columns>
                               </TableView>
                            </children>

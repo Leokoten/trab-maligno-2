@@ -1,5 +1,6 @@
 package com.example.trab2gui.models;
 
+import com.mongodb.BasicDBObject;
 import org.bson.Document;
 
 
@@ -29,6 +30,16 @@ public class Pet {
         this.gender = gender;
         this.age = age;
         this.owner = owner;
+    }
+
+    public Pet(Document document) {
+        this.id = (String) document.get("id");
+        this.name = (String) document.get("name");
+        this.type = (String) document.get("type");
+        this.breed = (String) document.get("breed");
+        this.gender = (String) document.get("gender");
+        this.age = (int) document.get("age");
+        this.owner = (String) document.get("owner");
     }
 
     public String getId() {

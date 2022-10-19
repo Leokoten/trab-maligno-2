@@ -1,11 +1,15 @@
 package com.example.trab2gui;
 
 import com.example.trab2gui.dao.DataAccess;
+import com.example.trab2gui.models.Owner;
 import com.example.trab2gui.models.Pet;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -37,6 +41,23 @@ public class CRUDController implements Initializable {
     private TableColumn<Pet, String> read_pet_column_gender;
     @FXML
     private TableColumn<Pet, String> read_pet_column_owner_id;
+
+    @FXML
+    private TextField read_owner_id;
+    @FXML
+    private Button read_owner_search_button;
+    @FXML
+    private TableView<Owner> read_owner_table;
+    @FXML
+    private TableColumn<Owner, String> read_owner_column_id;
+    @FXML
+    private TableColumn<Owner, String> read_owner_column_name;
+    @FXML
+    private TableColumn<Owner, Integer> read_owner_column_age;
+    @FXML
+    private TableColumn<Owner, Double> read_owner_column_height;
+    @FXML
+    private TableColumn<Owner, Double> read_owner_column_weight;
 
 
     // ADD
@@ -155,8 +176,39 @@ public class CRUDController implements Initializable {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+        read_pet_column_id.setCellValueFactory(new PropertyValueFactory<Pet, String>("id"));
+        read_pet_column_name.setCellValueFactory(new PropertyValueFactory<Pet, String>("name"));
+        read_pet_column_type.setCellValueFactory(new PropertyValueFactory<Pet, String>("type"));
+        read_pet_column_breed.setCellValueFactory(new PropertyValueFactory<Pet, String>("breed"));
+        read_pet_column_gender.setCellValueFactory(new PropertyValueFactory<Pet, String>("gender"));
+        read_pet_column_age.setCellValueFactory(new PropertyValueFactory<Pet, Integer>("age"));
+        read_pet_column_owner_id.setCellValueFactory(new PropertyValueFactory<Pet, String>("owner"));
+
+        read_owner_column_id.setCellValueFactory(new PropertyValueFactory<Owner, String>("id"));
+        read_owner_column_name.setCellValueFactory(new PropertyValueFactory<Owner, String>("id"));
+        read_owner_column_age.setCellValueFactory(new PropertyValueFactory<Owner, Integer>("id"));
+        read_owner_column_height.setCellValueFactory(new PropertyValueFactory<Owner, Double>("id"));
+        read_owner_column_weight.setCellValueFactory(new PropertyValueFactory<Owner, Double>("id"));
+
         add_pet_gender.setValue("Fêmea");
         add_pet_gender.getItems().addAll(genders);
+        update_pet_gender.setValue("Fêmea");
+        update_pet_gender.getItems().addAll(genders);
+        delete_pet_gender.setValue("Fêmea");
+        delete_pet_gender.getItems().addAll(genders);
+    }
+
+    @FXML
+    protected void onReadPetsButtonClick(ActionEvent event) {
+        if (read_pet_id.getText().equals("")) {
+            read_pet_table.setItems(db.getAllPets());
+            return;
+        }
+        Pet pet = db.getPetById(read_pet_id.getText());
+        ObservableList<Pet> pets = FXCollections.observableArrayList();
+        if (pet != null) pets.add(pet);
+        read_pet_table.setItems(pets);
     }
 
     @FXML
