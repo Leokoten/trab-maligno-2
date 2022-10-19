@@ -54,7 +54,6 @@ public class CRUDController implements Initializable {
         try {
             db = new DataAccess();
         } catch (Exception e) {
-            System.out.println("Fudeu");
             throw new RuntimeException(e);
         }
         add_pet_gender.setValue("Fêmea");
@@ -74,8 +73,17 @@ public class CRUDController implements Initializable {
             add_pet_age.setText("");
             add_pet_owner_id.setText("");
         } catch (Exception e) {
-            add_pet_response.setText(e.getMessage());
+            add_pet_response.setText("Erro: " + e.getMessage());
         }
     }
 
+    @FXML
+    protected void onUpdatePetButtonClick(ActionEvent event) {
+        //TODO: Implementar método que diz o que acontece quando clicar no botão de editar Pet
+    }
+
+    @FXML
+    protected void onDeletePetButtonClick(ActionEvent event) {
+        //TODO: Implementar método que diz o que acontece quando clicar no botão de excluir Pet
+    }
 }

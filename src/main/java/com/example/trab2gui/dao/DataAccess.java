@@ -1,10 +1,7 @@
 package com.example.trab2gui.dao;
 
 import com.example.trab2gui.models.Pet;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.MongoException;
+import com.mongodb.*;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -27,5 +24,13 @@ public class DataAccess {
 
     public void addPet(Pet pet) {
         this.petCollection.insertOne(pet.getDocument());
+    }
+
+    public void updatePet(String id, Pet pet) {
+        //TODO: Método de atualizar pet
+    }
+
+    public void deletePet(String id) {
+        //TODO: Método de deletar pet
     }
 }
