@@ -22,7 +22,7 @@ public class Pet {
         if (age <= 0) throw new Exception("Idade inválida");
         if (!gender.equals("Fêmea") && !gender.equals("Macho")) throw new Exception("Gênero inválido");
 
-        this.id = "pet-" + String.format("%09d", (int) (Math.random() * (1000000000)) +1);
+        this.id = "p" + String.format("%09d", (int) (Math.random() * (1000000000)) +1);
         this.name = name;
         this.type = type;
         this.breed = breed;
