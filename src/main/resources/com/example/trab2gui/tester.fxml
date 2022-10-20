@@ -43,7 +43,7 @@
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <TextField fx:id="read_owner_id" layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Dono (vazio para consultar todos)" />
-                              <Button fx:id="read_owner_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" text="Consultar" />
+                              <Button fx:id="read_owner_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" onAction="#onReadOwnersButtonClick" text="Consultar" />
                               <TableView fx:id="read_owner_table" layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
                                 <columns>
                                   <TableColumn fx:id="read_owner_column_id" prefWidth="100.0" text="ID" />
@@ -123,7 +123,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button id="add_owner_button" fx:id="add_owner_button" layoutX="451.0" layoutY="239.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Adicionar">
+                              <Button id="add_owner_button" fx:id="add_owner_button" layoutX="451.0" layoutY="239.0" mnemonicParsing="false" onAction="#onAddOwnerButtonClick" prefHeight="44.0" prefWidth="131.0" text="Adicionar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -253,7 +253,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="update_owner_button" layoutX="451.0" layoutY="355.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Salvar">
+                              <Button fx:id="update_owner_button" layoutX="451.0" layoutY="355.0" mnemonicParsing="false" onAction="#onUpdateOwnerButtonClick" prefHeight="44.0" prefWidth="131.0" text="Salvar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -393,7 +393,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="delete_owner_button" layoutX="451.0" layoutY="355.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Excluir">
+                              <Button fx:id="delete_owner_button" layoutX="451.0" layoutY="355.0" mnemonicParsing="false" onAction="#onDeleteOwnerButtonClick" prefHeight="44.0" prefWidth="131.0" text="Excluir">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

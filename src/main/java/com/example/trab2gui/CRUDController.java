@@ -187,10 +187,10 @@ public class CRUDController implements Initializable {
         read_pet_column_owner_id.setCellValueFactory(new PropertyValueFactory<Pet, String>("owner"));
 
         read_owner_column_id.setCellValueFactory(new PropertyValueFactory<Owner, String>("id"));
-        read_owner_column_name.setCellValueFactory(new PropertyValueFactory<Owner, String>("id"));
-        read_owner_column_age.setCellValueFactory(new PropertyValueFactory<Owner, Integer>("id"));
-        read_owner_column_height.setCellValueFactory(new PropertyValueFactory<Owner, Double>("id"));
-        read_owner_column_weight.setCellValueFactory(new PropertyValueFactory<Owner, Double>("id"));
+        read_owner_column_name.setCellValueFactory(new PropertyValueFactory<Owner, String>("name"));
+        read_owner_column_age.setCellValueFactory(new PropertyValueFactory<Owner, Integer>("age"));
+        read_owner_column_height.setCellValueFactory(new PropertyValueFactory<Owner, Double>("height"));
+        read_owner_column_weight.setCellValueFactory(new PropertyValueFactory<Owner, Double>("weight"));
 
         add_pet_gender.setValue("Fêmea");
         add_pet_gender.getItems().addAll(genders);

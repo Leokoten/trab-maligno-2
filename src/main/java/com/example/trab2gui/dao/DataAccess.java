@@ -56,13 +56,18 @@ public class DataAccess {
     }
 
     public Owner getOwnerById(String id) {
-        // TODO: Método de retornar um Owner pelo id
-        return null;
+        Document document = this.ownerCollection.find(new BasicDBObject("id", id)).first();
+        if (document == null) return null;
+        return new Owner(document);
     }
 
     public ObservableList<Owner> getAllOwners() {
-        // TODO: Método de retornar todos Owners em uma ObservableList
-        return null;
+        MongoCursor<Document> cursor = this.ownerCollection.find().iterator();
+        ObservableList<Owner> owners = FXCollections.observableArrayList();
+        while(cursor.hasNext()) {
+            owners.add(new Owner(cursor.next()));
+        }
+        return owners;
     }
 
     public void addOwner(Owner owner) {
