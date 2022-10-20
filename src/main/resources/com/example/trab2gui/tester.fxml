@@ -230,7 +230,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="update_pet_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                              <Button fx:id="update_pet_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" onAction="#onSearchUpdatePetButtonClick" prefHeight="38.0" prefWidth="131.0" text="Buscar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -293,7 +293,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="update_owner_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                              <Button fx:id="update_owner_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" onAction="#onSearchUpdateOwnerButtonClick" prefHeight="38.0" prefWidth="131.0" text="Buscar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -370,7 +370,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="delete_pet_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                              <Button fx:id="delete_pet_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" onAction="#onSearchDeletePetButtonClick" prefHeight="38.0" prefWidth="131.0" text="Buscar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -433,7 +433,7 @@
                                     <Font size="16.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="delete_owner_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="131.0" text="Buscar">
+                              <Button fx:id="delete_owner_search_button" layoutX="762.0" layoutY="100.0" mnemonicParsing="false" onAction="#onSearchDeleteOwnerButtonClick" prefHeight="38.0" prefWidth="131.0" text="Buscar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

@@ -23,6 +23,20 @@ public class Owner {
         this.weight = weight;
     }
 
+    public Owner(String name, int age, double height, double weight, String id) throws Exception {
+        if (name == null || name.equals("")) throw new Exception("Nome do Dono vazio");
+
+        if (age <= 0) throw new Exception("Idade inválida");
+        if (height <= 0) throw new Exception("Altura inválida");
+        if (weight <= 0) throw new Exception("Peso inválido");
+
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+    }
+
     public Owner(Document document) {
         this.id = (String) document.get("id");
         this.name = (String) document.get("name");

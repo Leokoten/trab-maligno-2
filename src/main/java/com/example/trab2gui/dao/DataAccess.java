@@ -7,6 +7,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.result.DeleteResult;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.bson.Document;
@@ -30,7 +31,7 @@ public class DataAccess {
     }
 
     public Pet getPetById(String id) {
-        Document document = this.petCollection.find(new BasicDBObject("id", id)).first();
+        Document document = this.petCollection.find(new Document("id", id)).first();
         if (document == null) return null;
         return new Pet(document);
     }
@@ -56,7 +57,7 @@ public class DataAccess {
     }
 
     public Owner getOwnerById(String id) {
-        Document document = this.ownerCollection.find(new BasicDBObject("id", id)).first();
+        Document document = this.ownerCollection.find(new Document("id", id)).first();
         if (document == null) return null;
         return new Owner(document);
     }
@@ -75,11 +76,13 @@ public class DataAccess {
     }
 
     public void updateOwnerById(String id, Owner owner) {
-        // TODO: Método de atualizar Owner pelo id
+        this.ownerCollection.updateOne(new Document("id", id), new Document("$set", owner.getDocument()));
     }
 
-    public void deleteOwnerById(String id) {
-        // TODO: Método de deletar Owner pelo id
+    public void deleteOwnerById(String id) throws Exception {
+        DeleteResult deleted = this.ownerCollection.deleteOne(new Document("id", id));
+        if (deleted.getDeletedCount() == 0) throw new Exception("Não foi deletado nenhum Dono");
+        if (deleted.getDeletedCount() > 1) throw new Exception("Foram deletados mais de um Dono com o id " + id);
     }
 
 

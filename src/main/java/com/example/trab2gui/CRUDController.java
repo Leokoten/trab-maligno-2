@@ -230,8 +230,18 @@ public class CRUDController implements Initializable {
     }
 
     @FXML
+    protected void onSearchUpdatePetButtonClick(ActionEvent event) {
+        // TODO: Implementar método que diz o que acontece quando clicar no botão de buscar Pet na parte de editar
+    }
+
+    @FXML
     protected void onUpdatePetButtonClick(ActionEvent event) {
         // TODO: Implementar método que diz o que acontece quando clicar no botão de editar Pet
+    }
+
+    @FXML
+    protected void onSearchDeletePetButtonClick(ActionEvent event) {
+        // TODO: Implementar método que diz o que acontece quando clicar no botão de buscar Pet na parte de excluir
     }
 
     @FXML
@@ -268,12 +278,63 @@ public class CRUDController implements Initializable {
     }
 
     @FXML
+    protected void onSearchUpdateOwnerButtonClick(ActionEvent event) {
+        try {
+            Owner owner = db.getOwnerById(update_owner_id.getText());
+            if (owner == null) throw new Exception("Dono não encontrado");
+            update_owner_name.setText(owner.getName());
+            update_owner_age.setText(String.valueOf(owner.getAge()));
+            update_owner_height.setText(String.valueOf(owner.getHeight()));
+            update_owner_weight.setText(String.valueOf(owner.getWeight()));
+        } catch (Exception e) {
+            update_owner_response.setText("Erro: " + e.getMessage());
+        }
+    }
+
+    @FXML
     protected void onUpdateOwnerButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de editar Owner
+        try {
+            Owner owner = new Owner(update_owner_name.getText(), Integer.parseInt(update_owner_age.getText()),
+                    Double.parseDouble(update_owner_height.getText()), Double.parseDouble(update_owner_weight.getText()),
+                    update_owner_id.getText());
+            db.updateOwnerById(owner.getId(), owner);
+            update_owner_response.setText("Dono atualizado com sucesso (id: " + owner.getId() + ")");
+            update_owner_id.setText("");
+            update_owner_name.setText("");
+            update_owner_age.setText("");
+            update_owner_height.setText("");
+            update_owner_weight.setText("");
+        } catch (Exception e) {
+            update_owner_response.setText("Erro: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    protected void onSearchDeleteOwnerButtonClick(ActionEvent event) {
+        try {
+            Owner owner = db.getOwnerById(delete_owner_id.getText());
+            if (owner == null) throw new Exception("Dono não encontrado");
+            delete_owner_name.setText(owner.getName());
+            delete_owner_age.setText(String.valueOf(owner.getAge()));
+            delete_owner_height.setText(String.valueOf(owner.getHeight()));
+            delete_owner_weight.setText(String.valueOf(owner.getWeight()));
+        } catch (Exception e) {
+            delete_owner_response.setText("Erro: " + e.getMessage());
+        }
     }
 
     @FXML
     protected void onDeleteOwnerButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de excluir Owner
+        try {
+            db.deleteOwnerById(delete_owner_id.getText());
+            delete_owner_response.setText("Dono excluido com sucesso (id: " + delete_owner_id.getText() + ")");
+            delete_owner_id.setText("");
+            delete_owner_name.setText("");
+            delete_owner_age.setText("");
+            delete_owner_height.setText("");
+            delete_owner_weight.setText("");
+        } catch (Exception e) {
+            delete_owner_response.setText("Erro: " + e.getMessage());
+        }
     }
 }

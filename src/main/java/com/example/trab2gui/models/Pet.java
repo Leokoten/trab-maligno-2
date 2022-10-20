@@ -32,6 +32,25 @@ public class Pet {
         this.owner = owner;
     }
 
+    public Pet(String name, String type, String breed, String gender, int age, String owner, String id) throws Exception {
+        if (name == null || name.equals("")) throw new Exception("Nome do Pet vazio");
+        if (type == null || type.equals("")) throw new Exception("Tipo do Pet vazio");
+        if (breed == null || breed.equals("")) throw new Exception("Raça do Pet vazio");
+        if (gender == null || gender.equals("")) throw new Exception("Gênero do Pet vazio");
+        if (owner == null || owner.equals("")) throw new Exception("Dono do Pet vazio");
+
+        if (age <= 0) throw new Exception("Idade inválida");
+        if (!gender.equals("Fêmea") && !gender.equals("Macho")) throw new Exception("Gênero inválido");
+
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.breed = breed;
+        this.gender = gender;
+        this.age = age;
+        this.owner = owner;
+    }
+
     public Pet(Document document) {
         this.id = (String) document.get("id");
         this.name = (String) document.get("name");
