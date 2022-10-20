@@ -1,5 +1,6 @@
 package com.example.trab2gui.dao;
 
+import com.example.trab2gui.models.Owner;
 import com.example.trab2gui.models.Pet;
 import com.mongodb.*;
 import com.mongodb.client.FindIterable;
@@ -47,11 +48,34 @@ public class DataAccess {
     }
 
     public void updatePetById(String id, Pet pet) {
-        // TODO: Método de atualizar pet
+        // TODO: Método de atualizar Pet pelo id
     }
 
     public void deletePetById(String id) {
-        // TODO: Método de deletar pet
+        // TODO: Método de deletar Pet pelo id
     }
+
+    public Owner getOwnerById(String id) {
+        // TODO: Método de retornar um Owner pelo id
+        return null;
+    }
+
+    public ObservableList<Owner> getAllOwners() {
+        // TODO: Método de retornar todos Owners em uma ObservableList
+        return null;
+    }
+
+    public void addOwner(Owner owner) {
+        this.ownerCollection.insertOne(owner.getDocument());
+    }
+
+    public void updateOwnerById(String id, Owner owner) {
+        // TODO: Método de atualizar Owner pelo id
+    }
+
+    public void deleteOwnerById(String id) {
+        // TODO: Método de deletar Owner pelo id
+    }
+
 
 }

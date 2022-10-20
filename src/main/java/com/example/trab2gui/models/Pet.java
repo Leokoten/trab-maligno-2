@@ -14,11 +14,11 @@ public class Pet {
     private String owner;
 
     public Pet(String name, String type, String breed, String gender, int age, String owner) throws Exception {
-        if (name == null || name.equals("")) throw new Exception("Nome do Pet null");
-        if (type == null || type.equals("")) throw new Exception("Tipo do Pet null");
-        if (breed == null || breed.equals("")) throw new Exception("Raça do Pet null");
-        if (gender == null || gender.equals("")) throw new Exception("Gênero do Pet null");
-        if (owner == null || owner.equals("")) throw new Exception("Dono do Pet null");
+        if (name == null || name.equals("")) throw new Exception("Nome do Pet vazio");
+        if (type == null || type.equals("")) throw new Exception("Tipo do Pet vazio");
+        if (breed == null || breed.equals("")) throw new Exception("Raça do Pet vazio");
+        if (gender == null || gender.equals("")) throw new Exception("Gênero do Pet vazio");
+        if (owner == null || owner.equals("")) throw new Exception("Dono do Pet vazio");
 
         if (age <= 0) throw new Exception("Idade inválida");
         if (!gender.equals("Fêmea") && !gender.equals("Macho")) throw new Exception("Gênero inválido");

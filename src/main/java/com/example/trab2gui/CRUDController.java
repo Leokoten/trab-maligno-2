@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -174,7 +175,7 @@ public class CRUDController implements Initializable {
         try {
             db = new DataAccess();
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.exit(-1);
         }
 
         read_pet_column_id.setCellValueFactory(new PropertyValueFactory<Pet, String>("id"));
@@ -236,5 +237,43 @@ public class CRUDController implements Initializable {
     @FXML
     protected void onDeletePetButtonClick(ActionEvent event) {
         // TODO: Implementar método que diz o que acontece quando clicar no botão de excluir Pet
+    }
+
+    @FXML
+    protected void onReadOwnersButtonClick(ActionEvent event) {
+        if (read_owner_id.getText().equals("")) {
+            read_owner_table.setItems(db.getAllOwners());
+            return;
+        }
+        Owner owner = db.getOwnerById(read_owner_id.getText());
+        ObservableList<Owner> owners = FXCollections.observableArrayList();
+        if (owner != null) owners.add(owner);
+        read_owner_table.setItems(owners);
+    }
+
+    @FXML
+    protected void onAddOwnerButtonClick(ActionEvent event) {
+        try {
+            Owner owner = new Owner(add_owner_name.getText(), Integer.parseInt(add_owner_age.getText()),
+                    Double.parseDouble(add_owner_height.getText()), Double.parseDouble(add_owner_weight.getText()));
+            db.addOwner(owner);
+            add_owner_response.setText("Dono adicionado com sucesso (id: " + owner.getId() + ")");
+            add_owner_name.setText("");
+            add_owner_age.setText("");
+            add_owner_height.setText("");
+            add_owner_weight.setText("");
+        } catch (Exception e) {
+            add_owner_response.setText("Erro: " + e.getMessage());
+        }
+    }
+
+    @FXML
+    protected void onUpdateOwnerButtonClick(ActionEvent event) {
+        // TODO: Implementar método que diz o que acontece quando clicar no botão de editar Owner
+    }
+
+    @FXML
+    protected void onDeleteOwnerButtonClick(ActionEvent event) {
+        // TODO: Implementar método que diz o que acontece quando clicar no botão de excluir Owner
     }
 }
