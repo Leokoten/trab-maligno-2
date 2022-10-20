@@ -3,7 +3,6 @@ package com.example.trab2gui.dao;
 import com.example.trab2gui.models.Owner;
 import com.example.trab2gui.models.Pet;
 import com.mongodb.*;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -11,8 +10,6 @@ import com.mongodb.client.result.DeleteResult;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.bson.Document;
-
-import java.util.Iterator;
 
 public class DataAccess {
     private final MongoCollection<Document> petCollection;
@@ -49,11 +46,13 @@ public class DataAccess {
     }
 
     public void updatePetById(String id, Pet pet) {
-        // TODO: Método de atualizar Pet pelo id
+        this.petCollection.updateOne(new Document("id", id), new Document("$set", pet.getDocument()));
     }
 
-    public void deletePetById(String id) {
-        // TODO: Método de deletar Pet pelo id
+    public void deletePetById(String id) throws Exception {
+        DeleteResult deleted = this.petCollection.deleteOne(new Document("id", id));
+        if (deleted.getDeletedCount() == 0) throw new Exception("Não foi deletado nenhum pet");
+        if (deleted.getDeletedCount() > 1) throw new Exception("Foram deletados mais de um pet com o id " + id);
     }
 
     public Owner getOwnerById(String id) {

@@ -11,8 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
-
-import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -231,22 +229,66 @@ public class CRUDController implements Initializable {
 
     @FXML
     protected void onSearchUpdatePetButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de buscar Pet na parte de editar
+        try {
+            Pet pet = db.getPetById(update_pet_id.getText());
+            if (pet == null) throw new Exception("Pet não encontrado");
+            update_pet_name.setText(pet.getName());
+            update_pet_type.setText(pet.getType());
+            update_pet_breed.setText(pet.getBreed());
+            update_pet_gender.setValue(pet.getGender());
+            update_pet_age.setText(String.valueOf(pet.getAge()));
+            update_pet_owner_id.setText(pet.getOwner());
+        } catch (Exception err) {
+            update_pet_response.setText("Erro: " + err.getMessage());
+        }
     }
 
     @FXML
     protected void onUpdatePetButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de editar Pet
+        try {
+            Pet pet = new Pet(update_pet_name.getText(), update_pet_type.getText(),
+                    update_pet_breed.getText(), update_pet_gender.getValue(), Integer.parseInt(update_pet_age.getText()) ,
+                    update_pet_owner_id.getText(), update_pet_id.getText());
+            db.updatePetById(update_pet_id.getText(), pet);
+            update_pet_name.setText("");
+            update_pet_type.setText("");
+            update_pet_breed.setText("");
+            update_pet_age.setText("");
+            update_pet_owner_id.setText("");
+        } catch (Exception err) {
+            update_pet_response.setText("Erro: " + err.getMessage());
+        }
     }
 
     @FXML
     protected void onSearchDeletePetButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de buscar Pet na parte de excluir
+        try {
+            Pet pet = db.getPetById(delete_pet_id.getText());
+            if (pet == null) throw new Exception("Pet não encontrado");
+            delete_pet_name.setText(pet.getName());
+            delete_pet_type.setText(pet.getType());
+            delete_pet_breed.setText(pet.getBreed());
+            delete_pet_gender.setValue(pet.getGender());
+            delete_pet_age.setText(String.valueOf(pet.getAge()));
+            delete_pet_owner_id.setText(pet.getOwner());
+        } catch (Exception err) {
+            delete_pet_response.setText("Erro: " + err.getMessage());
+        }
     }
 
     @FXML
     protected void onDeletePetButtonClick(ActionEvent event) {
-        // TODO: Implementar método que diz o que acontece quando clicar no botão de excluir Pet
+        try {
+            db.deletePetById(delete_pet_id.getText());
+            delete_pet_response.setText("Pet excluído com sucesso (id: " + delete_pet_id.getText() + ")");
+            delete_pet_name.setText("");
+            delete_pet_type.setText("");
+            delete_pet_breed.setText("");
+            delete_pet_age.setText("");
+            delete_pet_owner_id.setText("");
+        } catch (Exception err) {
+            delete_pet_response.setText("Erro: " + err.getMessage());
+        }
     }
 
     @FXML

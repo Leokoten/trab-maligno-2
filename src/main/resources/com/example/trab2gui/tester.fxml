@@ -184,7 +184,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="update_pet_button" layoutX="452.0" layoutY="427.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Salvar">
+                              <Button fx:id="update_pet_button" layoutX="452.0" layoutY="427.0" mnemonicParsing="false" onAction="#onUpdatePetButtonClick" prefHeight="44.0" prefWidth="131.0" text="Salvar">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -324,7 +324,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="delete_pet_button" layoutX="452.0" layoutY="427.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="131.0" text="Excluir">
+                              <Button fx:id="delete_pet_button" layoutX="452.0" layoutY="427.0" mnemonicParsing="false" onAction="#onDeletePetButtonClick" prefHeight="44.0" prefWidth="131.0" text="Excluir">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
