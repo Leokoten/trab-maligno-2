@@ -21,7 +21,7 @@
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField fx:id="read_pet_id" layoutX="398.0" layoutY="31.0" prefHeight="25.0" prefWidth="228.0" promptText="Id do Pet (vazio para consultar todos)" />
+                              <TextField fx:id="read_pet_id" layoutX="379.0" layoutY="31.0" prefHeight="25.0" prefWidth="267.0" promptText="Id do Pet ou Owner (vazio para consultar todos)" />
                               <Button fx:id="read_pet_search_button" layoutX="479.0" layoutY="73.0" mnemonicParsing="false" onAction="#onReadPetsButtonClick" text="Consultar" />
                               <TableView fx:id="read_pet_table" layoutX="16.0" layoutY="125.0" prefHeight="557.0" prefWidth="992.0">
                                  <columns>

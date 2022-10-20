@@ -205,8 +205,12 @@ public class CRUDController implements Initializable {
             return;
         }
         Pet pet = db.getPetById(read_pet_id.getText());
+        if (pet == null) {
+            read_pet_table.setItems(db.getPetsByOwner(read_pet_id.getText()));
+            return;
+        }
         ObservableList<Pet> pets = FXCollections.observableArrayList();
-        if (pet != null) pets.add(pet);
+        pets.add(pet);
         read_pet_table.setItems(pets);
     }
 
@@ -250,6 +254,8 @@ public class CRUDController implements Initializable {
                     update_pet_breed.getText(), update_pet_gender.getValue(), Integer.parseInt(update_pet_age.getText()) ,
                     update_pet_owner_id.getText(), update_pet_id.getText());
             db.updatePetById(update_pet_id.getText(), pet);
+            update_pet_response.setText("Pet atualizado com sucesso (id: " + pet.getId() + ")");
+            update_pet_id.setText("");
             update_pet_name.setText("");
             update_pet_type.setText("");
             update_pet_breed.setText("");
@@ -281,6 +287,7 @@ public class CRUDController implements Initializable {
         try {
             db.deletePetById(delete_pet_id.getText());
             delete_pet_response.setText("Pet excluído com sucesso (id: " + delete_pet_id.getText() + ")");
+            delete_pet_id.setText("");
             delete_pet_name.setText("");
             delete_pet_type.setText("");
             delete_pet_breed.setText("");

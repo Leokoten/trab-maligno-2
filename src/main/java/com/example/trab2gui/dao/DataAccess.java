@@ -32,6 +32,16 @@ public class DataAccess {
         if (document == null) return null;
         return new Pet(document);
     }
+
+    public ObservableList<Pet> getPetsByOwner(String owner) {
+        MongoCursor<Document> cursor = this.petCollection.find(new Document("owner", owner)).iterator();
+        ObservableList<Pet> pets = FXCollections.observableArrayList();
+        while(cursor.hasNext()) {
+            pets.add(new Pet(cursor.next()));
+        }
+        return pets;
+    }
+
     public ObservableList<Pet> getAllPets() {
         MongoCursor<Document> cursor = this.petCollection.find().iterator();
         ObservableList<Pet> pets = FXCollections.observableArrayList();
